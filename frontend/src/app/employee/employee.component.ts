@@ -4,6 +4,7 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 import { NgForm } from '@angular/forms';
 import { EmployeeService } from '../employee.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee',
@@ -22,7 +23,7 @@ export class EmployeeComponent implements OnInit {
     empSkills: ''
   };
 
-  constructor(private employeeService: EmployeeService) {
+  constructor(private employeeService: EmployeeService, private router: Router) {
 
   }
 
@@ -60,6 +61,8 @@ export class EmployeeComponent implements OnInit {
           this.employee.empGender = '';
           this.skills = [];
           this.employee.empSkills = '';
+          this.router.navigateByUrl("/employee-list")
+
         },
         error: (err:HttpErrorResponse) => {
           console.log(err);

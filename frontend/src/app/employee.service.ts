@@ -15,4 +15,12 @@ export class EmployeeService {
   public saveEmployee(employee: Employee): Observable<Employee> {
     return this.httpClient.post<Employee>(`${this.api}/add`,employee)
   }
+
+  public getAllEmployees(): Observable<Employee[]> {
+    return this.httpClient.get<Employee[]>(`${this.api}/getall`)
+  }
+
+  public deleteEmployee(empId: number): Observable<any> {
+    return this.httpClient.delete(`${this.api}/delete/${empId}`, { responseType: 'text' });
+  }
 }

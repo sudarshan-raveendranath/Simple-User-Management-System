@@ -1,5 +1,11 @@
 <div class="container" style="width: 40%;">
-    <div class="card p-5 mt-5">
+
+    <div align="right">
+        <button mat-raised-button color="accent" routerLink="/employee-list">Go to Employee List</button>
+    </div>
+
+    <div class="card p-5 mt-2">
+
         <form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)">
             <mat-form-field appearance="outline">
                 <mat-label>Employee ID</mat-label>
