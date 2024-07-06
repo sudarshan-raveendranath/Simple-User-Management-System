@@ -1,0 +1,55 @@
+<div class="container">
+
+    <div align="right" class="mb-3">
+        <button mat-raised-button color="accent" routerLink="/employee">Go to Employee Form</button>
+    </div>
+
+    <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="ID">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.empId}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.empName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Contact Number">
+            <th mat-header-cell *matHeaderCellDef> Contact Number </th>
+            <td mat-cell *matCellDef="let element"> {{element.empContactNumber}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Address">
+            <th mat-header-cell *matHeaderCellDef> Address </th>
+            <td mat-cell *matCellDef="let element"> {{element.empAddress}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Department">
+            <th mat-header-cell *matHeaderCellDef> Department </th>
+            <td mat-cell *matCellDef="let element"> {{element.empDepartment}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Gender">
+            <th mat-header-cell *matHeaderCellDef> Gender </th>
+            <td mat-cell *matCellDef="let element"> {{element.empGender}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Skills">
+            <th mat-header-cell *matHeaderCellDef> Skills </th>
+            <td mat-cell *matCellDef="let element"> {{element.empSkills}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Delete">
+            <th mat-header-cell *matHeaderCellDef> Delete </th>
+            <td mat-cell *matCellDef="let element"> <button mat-icon-button color="warn"
+                    aria-label="Example icon button with a vertical three dot icon" (click)="deleteEmployee(element.empId)">
+                    <mat-icon>delete</mat-icon>
+                </button> </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
