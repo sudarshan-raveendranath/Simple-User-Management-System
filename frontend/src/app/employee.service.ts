@@ -23,4 +23,12 @@ export class EmployeeService {
   public deleteEmployee(empId: number): Observable<any> {
     return this.httpClient.delete(`${this.api}/delete/${empId}`, { responseType: 'text' });
   }
+
+  public getEmployee(empId: number) {
+    return this.httpClient.get<Employee>(`${this.api}/get/${empId}`);
+  }
+
+  public updateEmployee(employee: Employee) {
+    return this.httpClient.put<Employee>(`${this.api}/update`, employee);
+  }
 }
